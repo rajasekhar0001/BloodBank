@@ -17,16 +17,15 @@ import com.example.demo.repository.InventoryRepository;
 
 import jakarta.transaction.Transactional;
 
-@SpringBootTest
-//@DataJpaTest
-//@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+//@SpringBootTest
+@DataJpaTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class InventoryRepositoryTest {
 
     @Autowired
     private InventoryRepository inventoryRepository;
 
     @Test
-    @Disabled
     public void testFindByBloodGroup() {
         // Arrange
         Inventory inventory = new Inventory();
@@ -78,7 +77,7 @@ public class InventoryRepositoryTest {
         inventoryRepository.deleteByBloodId(savedInventory.getBloodId());
 
         // Assert
-        assertEquals(21, inventoryRepository.count());
+        assertEquals(0, inventoryRepository.count());
     }
 
 }
